@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Educacional</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="logotexto">DASHBOARD<br>EDUCACIONAL</div>
+    <div class="subtitle">ACOMPANHAMENTO DA REDE DE ENSINO</div>
+    
+    <div class="avatar">
+      <img src="https://img.icons8.com/?size=100&id=13115&format=png&color=FFFFFF" alt="Avatar">
+    </div>
+
+    <div class="user-info">
+      <div class="name">PORTAL DE DADOS RECIFE</div>
+      <div class="role">DBA </div>
+    </div>
+    
+    <div class="divider"></div>
+
+    <ul class="menu">
+      <li class="active">📊 Visão Geral</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <div class="menu-item-special">
+        <span class="icon">⚙️</span>
+        Configurações
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <h1 class="title-header">Visão Geral</h1>
+      <div class="actions">
+        
+        <div class="user-icon">LB</div>
+      </div>
+    </div>
+    
+    <div class="grid-container">
+      
+      <div class="card">
+        <h2>Top 10 Escolas por Número de Alunos</h2>
+        <div class="chart-container">
+           <canvas id="escolasChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Distribuição de Alunos por Gênero</h2>
+        <div class="chart-container">
+           <canvas id="generoChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Distribuição de Alunos por Turno</h2>
+        <div class="chart-container">
+           <canvas id="turnoChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Distribuição de Alunos por Idade</h2>
+        <div class="chart-container">
+           <canvas id="idadeChart"></canvas>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>Alunos por Modalidade de Ensino</h2>
+        <div class="chart-container">
+           <canvas id="modalidadeChart"></canvas>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>Situação Final dos Alunos (Top 5)</h2>
+        <div class="chart-container">
+           <canvas id="situacaoChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+
+</body>
+</html>

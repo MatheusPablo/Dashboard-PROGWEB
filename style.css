@@ -1,0 +1,394 @@
+/* --- GERAL E FONTES --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Oswald', sans-serif;
+    background-color: #191e22; /* Fundo principal */
+    color: #e5e7eb; /* Cor de texto padrão */
+}
+
+/* --- LAYOUT PRINCIPAL (Sidebar + Conteúdo) --- */
+body {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #252a2e; /* Fundo da Sidebar */
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Impede que a sidebar encolha */
+    transition: width 0.3s; /* Animação suave para responsividade */
+}
+
+.content {
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    padding: 24px;
+    overflow-y: auto; /* Permite rolagem apenas no conteúdo */
+}
+
+/* --- ESTILOS DA SIDEBAR --- */
+.logotexto {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 30px;
+}
+
+.avatar {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #4b5563;
+    border: 2px solid #6b7280;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.user-info .name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.user-info .role {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.divider {
+    border-top: 1px solid #374151;
+    margin: 16px 0;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 14px;
+}
+
+.menu li:hover {
+    background-color: #374151;
+}
+
+.menu li.active {
+    background-color: #4f46e5; /* Cor de destaque roxa */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.menu-item-special {
+    margin-top: auto; /* Empurra o item para o final da sidebar */
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-item-special .icon {
+    margin-right: 8px;
+}
+
+/* --- CABEÇALHO DO CONTEÚDO --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.title-header {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.export-button {
+    background-color: #4f46e5;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.export-button:hover {
+    background-color: #4338ca;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* --- GRID DE CARDS --- */
+.grid-container {
+    display: grid;
+    /* 3 colunas para desktop */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background-color: #252a2e;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #d1d5db;
+    font-weight: 500;
+}
+
+/* --- CONTAINER DO GRÁFICO (ESSENCIAL PARA O CHART.JS) --- */
+.chart-container {
+    position: relative;
+    flex-grow: 1; /* Faz o container do gráfico crescer para preencher o card */
+    min-height: 250px; /* Altura mínima para garantir visualização */
+}
+
+/* --- ESTILOS PARA OS OUTROS CARDS (do modelo original) --- */
+.area-chart {
+    position: relative;
+    height: 100%;
+    min-height: 250px;
+}
+.area-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80%;
+    background: linear-gradient(to top, rgba(79, 70, 229, 0.4) 0%, rgba(79, 70, 229, 0) 100%);
+    border-radius: 8px;
+}
+.area-line { /* Simula uma linha no gráfico de área */
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #4f46e5;
+    border-radius: 1px;
+}
+
+.pie-chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.pie-chart {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4f46e5 0deg 349deg, #374151 349deg 360deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pie-center {
+    width: 110px;
+    height: 110px;
+    background-color: #252a2e;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+.pie-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+.pie-label {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+/* Telas de Tablet */
+@media (max-width: 1024px) {
+    .grid-container {
+        /* 2 colunas para tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Telas de Celular */
+@media (max-width: 768px) {
+    body {
+        /* Empilha a sidebar e o conteúdo */
+        flex-direction: column;
+        height: auto; /* Permite que o conteúdo cresça */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar ocupa a largura toda */
+        height: auto;
+        flex-direction: row; /* Itens da sidebar em linha */
+        align-items: center;
+        overflow-x: auto; /* Permite rolagem horizontal na sidebar */
+        padding: 12px;
+    }
+
+    .logotexto, .subtitle, .avatar, .user-info, .divider, .menu-item-special {
+        display: none; /* Esconde itens desnecessários da sidebar no mobile */
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row; /* Menu na horizontal */
+        gap: 8px;
+    }
+    .menu li {
+        margin-bottom: 0;
+    }
+
+    .content {
+        padding: 16px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .grid-container {
+        /* 1 coluna para celular */
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ... (estilos existentes acima) ... */
+
+/* --- ESTILOS PARA NOVOS_DADOS.HTML (Adições/Modificações) --- */
+
+/* Styles for the #campos-selecionados-input (mostly inherited) */
+#campos-selecionados-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px; 
+    margin-bottom: 10px; /* Ajustado para espaçamento dentro do card */
+    background-color: #1f2327;
+    border: 1px solid #374151;
+    color: #9ca3af; 
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+}
+#campos-selecionados-input::placeholder {
+    color: #5f6873;
+}
+
+
+/* Styles for the new textarea */
+#dados-para-envio-input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #252a2e; /* Fundo do input */
+    border: 1px solid #374151; /* Borda do input */
+    color: #e5e7eb; /* Cor do texto do input */
+    border-radius: 4px;
+    font-family: 'Oswald', sans-serif; /* Consistent font */
+    font-size: 14px;
+    box-sizing: border-box;
+    line-height: 1.5; /* Improved readability for multi-line text */
+}
+
+#dados-para-envio-input:focus {
+    outline: none;
+    border-color: #4f46e5; /* Destaque roxo no foco */
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.3);
+}
+#dados-para-envio-input::placeholder {
+    color: #7a828e;
+}
+
+
+/* Remove or comment out old form grid styles if no longer used */
+/*
+.form-adicionar-dados .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px; 
+    margin-bottom: 24px;
+}
+*/
+
+/* Ensure .form-group provides some spacing if used directly under a card h2 or similar */
+.card > .form-group {
+    margin-top: 16px;
+}
+.form-group label { /* General label styling if not already fully covered */
+    display: block; /* Ensures label is on its own line if needed */
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #d1d5db; 
+    font-weight: 500;
+}
+
+
+.form-submit-button { /* Ensure button style is fine */
+    margin-top: 16px; /* Space above the button */
+    width: auto; 
+    min-width: 150px;
+}
+
+/* --- FIM DOS ESTILOS PARA NOVOS_DADOS.HTML --- */
